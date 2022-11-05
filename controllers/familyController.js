@@ -37,6 +37,6 @@ export const familyMiscPhotos = asyncHandler(async (req, res) => {
     throw new Error('Incorrect Password. Try again or ask Admin for Password');
   }
   const { photos } = await Image.findOne({ name: 'family/misc/photos' });
-  // shuffle(photos);
+  shuffle(photos);
   res.json(photos);
 });
