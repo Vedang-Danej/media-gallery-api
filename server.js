@@ -28,6 +28,13 @@ app.use('/api/family', familyRoutes);
 app.use('/api/friends', friendsRoutes);
 app.use('/api/admin', adminRoutes);
 
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', (req, res) => {
+    res.status(301);
+    res.redirect('https://media-gallery-vedang.netlify.app/');
+  });
+}
+
 app.use(notFound);
 app.use(errorHandler);
 
